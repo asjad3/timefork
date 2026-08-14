@@ -1,0 +1,40 @@
+name: Bug report
+description: Something in timefork didn't work as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you run, what did you expect, what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        timefork init
+        timefork snap -m "..."
+        ...
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS + filesystem
+      placeholder: "macOS 15.2, APFS  /  Ubuntu 24.04, ext4  /  Fedora 41, btrfs"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: timefork version
+      description: Output of `timefork --version`
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output
+      render: shell

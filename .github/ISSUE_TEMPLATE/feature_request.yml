@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest an idea for timefork
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: What are you trying to do that timefork can't do today?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: A rough sketch is fine — CLI shape, flag names, behavior.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
