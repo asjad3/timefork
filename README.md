@@ -1,18 +1,11 @@
 # timefork
 
+[![CI](https://github.com/asjad3/timefork/actions/workflows/ci.yml/badge.svg)](https://github.com/asjad3/timefork/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 **A copy-on-write time machine for coding agent workspaces.** Every tool call your agent makes becomes a free filesystem checkpoint. Rewind to any moment, diff any two moments, and fork the entire workspace in about a second — powered by APFS `clonefile(2)` / Linux reflinks, with no daemon, no FUSE mount, no database.
 
-```
-$ timefork list
-   ID   AGE  ORIGIN        GIT       LABEL
-   47    2m  Bash          main@a3f9c21 npm run db:migrate
-   46    2m  Edit          main@a3f9c21 edit src/db/schema.ts
-   45    5m  Bash          main@a3f9c21 rm -rf dist && npm run build
-   44    9m  session-start main@8b01d4e agent session started
-
-$ timefork restore 45        # full workspace rewind — including everything git never saw
-$ timefork fork 45 -n 4      # four independent copies of that exact moment, ~1s each
-```
+![timefork demo: agent history, rm -rf recovery, and 4 parallel forks](docs/demo.gif)
 
 ## Why
 

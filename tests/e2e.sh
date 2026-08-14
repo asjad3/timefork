@@ -2,7 +2,7 @@
 # End-to-end test for timefork on a synthetic repo.
 set -e
 TF=${TF:-"$(cd "$(dirname "$0")/.." && pwd)/target/debug/timefork"}
-WORK=$(mktemp -d /private/tmp/tf-e2e.XXXXXX)
+WORK=$(mktemp -d "${TMPDIR:-/tmp}/tf-e2e.XXXXXX")
 REPO=$WORK/myrepo
 mkdir -p $REPO/src $REPO/db
 cd $REPO
