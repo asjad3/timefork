@@ -31,7 +31,10 @@ Synthetic worst-case (50,000 files spread across 500 top-level directories): che
 ## Install
 
 ```sh
-cargo install timefork          # or:
+brew install asjad3/timefork/timefork   # macOS/Linuxbrew
+# or:
+cargo install timefork
+# or:
 git clone https://github.com/asjad3/timefork && cd timefork && cargo install --path .
 ```
 
