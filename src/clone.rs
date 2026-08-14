@@ -8,7 +8,9 @@
 //! are skipped and reported.
 
 use anyhow::{Context, Result};
-use std::ffi::{CString, OsStr};
+#[cfg(target_os = "macos")]
+use std::ffi::CString;
+use std::ffi::OsStr;
 use std::fs;
 use std::io;
 use std::path::{Path, PathBuf};
@@ -83,6 +85,7 @@ fn fallback_walk(src: &Path, dst: &Path, stats: &mut CloneStats) -> Result<()> {
     }
 }
 
+#[cfg(target_os = "macos")]
 fn cstr(p: &Path) -> io::Result<CString> {
     use std::os::unix::ffi::OsStrExt;
     CString::new(p.as_os_str().as_bytes())
